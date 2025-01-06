@@ -1,5 +1,6 @@
 import heroImg from "../assets/assets_frontend/header_img.png";
 import groupHeroImg from "../assets/assets_frontend/group_profiles.png";
+import { FaArrowRight } from "react-icons/fa";
 
 const Hero = () => {
   return (
@@ -20,8 +21,8 @@ const Hero = () => {
             </p>
           </span>
           <button className="flex px-8 py-3 bg-white text-black rounded-full font-light">
-            Book application 
-            
+            Book appointment
+            <FaArrowRight />
           </button>
         </div>
 
