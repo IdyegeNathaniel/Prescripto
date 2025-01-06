@@ -2,13 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.active hr{
+    @apply block
+}
+
 @layer base {
-  body{
-    margin: 0 1rem;
-  }
-  @media  (min-width: 640px){
-    body{
-        margin: 0 10%;
+    body {
+        margin: 0 1rem;
     }
-  }
+
+    @media (min-width: 640px) {
+        body {
+            margin: 0 10%;
+        }
+    }
 }
