@@ -1,20 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-.active hr{
-    @apply block
+.active hr {
+  @apply block;
 }
 
 @layer base {
-    body {
-        margin: 0 1rem;
-    }
+  body {
+    font-family:"san-serif", outfit;
+    margin: 0 1rem;
+  }
 
-    @media (min-width: 640px) {
-        body {
-            margin: 0 10%;
-        }
+  @media (min-width: 640px) {
+    body {
+      margin: 0 10%;
     }
+  }
 }
