@@ -1,4 +1,5 @@
 import { FaArrowLeft, FaExclamationTriangle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const NotFoundPage = () => {
   return (
@@ -8,7 +9,7 @@ const NotFoundPage = () => {
       <p className="text-xl mb-5">This Page does not exist</p>
       <Link
         to="/"
-        className="bg-primary hover:scale-105 transition-all duration-300 text-white py-2 px-4 mt-4 rounded-xl"
+        className="bg-primary outline-none hover:scale-105 transition-all duration-300 text-white py-2 px-4 mt-4 rounded-xl"
       >
         <FaArrowLeft className="inline mr-2" />
         Go Back

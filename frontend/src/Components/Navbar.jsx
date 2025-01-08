@@ -19,9 +19,10 @@ const Navbar = () => {
       <ul className="hidden md:flex gap-5 items-start">
         {["HOME", "ALL DOCTORS", "ABOUT", "CONTACT"].map((item, index) => (
           <NavLink
+            key={index}
             to={index === 0 ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
           >
-            <li key={index} className="font-semibold text-sm py-1">
+            <li className="font-semibold text-sm py-1">
               {item} <hr className="hidden bg-primary w-3/5 m-auto h-0.5" />
             </li>
           </NavLink>
