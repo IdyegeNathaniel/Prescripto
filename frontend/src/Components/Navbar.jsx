@@ -17,8 +17,10 @@ const Navbar = () => {
         <img src={Logo} alt="logo" className="w-44" />
       </NavLink>
       <ul className="hidden md:flex gap-5 items-start">
-        {["HOME", "DOCTORS", "ABOUT", "CONTACT"].map((item, index) => (
-          <NavLink to={index === 0 ? "/" : `/${item.toLowerCase()}`}>
+        {["HOME", "ALL DOCTORS", "ABOUT", "CONTACT"].map((item, index) => (
+          <NavLink
+            to={index === 0 ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
+          >
             <li key={index} className="font-semibold text-sm py-1">
               {item} <hr className="hidden bg-primary w-3/5 m-auto h-0.5" />
             </li>

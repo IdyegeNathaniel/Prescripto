@@ -5,23 +5,24 @@ const Speciality = () => {
   return (
     <section
       id="speciality"
-      className="flex flex-col gap-5 text-center items-center justify-center my-10"
+      className="flex flex-col gap-5 text-center items-center  py-16"
     >
-      <div className="py-8">
-        <h1 className="text-3xl mb-5">Find by Speciality</h1>
-        <p className="text-sm font-light mb-5">
+      <div className="">
+        <h1 className="text-3xl mb-5 font-medium">Find by Speciality</h1>
+        <p className="text-sm font-light mb-5 text-gray-800">
           Simply browse through our extensive list of trusted doctors,
           <br /> schedule your appointment hassle-free.
         </p>
-        <div className="flex text-sm my-3 gap-4">
+        <div className="flex sm:justify-center w-full pt-5 gap-4 overflow-scroll">
           {specialityData.map((item, index) => (
             <Link
               key={index}
-              to={`doctors/${item.speciality.replace("", "-").toLowerCase()}`}
-              className="text-center items-center justify-center hover:-translate-y-4 duration-500"
+              onClick={() => scrollTo(0, 0)}
+              to={`doctors/${item.speciality.toLowerCase().replace(" ", "-")}`}
+              className="flex md:flex-col flex-shrink-0text-center text-xs items-center justify-center hover:-translate-y-[10px] transition-all duration-500"
             >
-              <img src={item.image} alt="image" className="w-24 mb-2" />
-              <p className="">{item.speciality}</p>
+              <img src={item.image} alt="image" className="w-16 sm:w-24 mb-2" />
+              <p>{item.speciality}</p>
             </Link>
           ))}
         </div>
