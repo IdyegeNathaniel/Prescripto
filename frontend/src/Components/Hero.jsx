@@ -20,13 +20,13 @@ const Hero = () => {
             schedule your appointment hassle-free.
           </p>
         </div>
-        <Link
-          to={"#speciality"}
+        <a
+          href="#speciality"
           className="flex justify-center items-center gap-4 px-8 py-3 bg-white text-black rounded-full font-light hover:scale-105 transition-all duration-300"
         >
           Book appointment
           <FaLongArrowAltRight className="font-light w-3 inline" />
-        </Link>
+        </a>
       </div>
 
       {/* RIGHT */}

@@ -1,7 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import { doctors } from "../assets/assets";
+import { useContext } from "react";
+import { AppContext } from "../Context/Appcontext";
 
 const Bookings = () => {
+  const { doctors } = useContext(AppContext);
+
   const navigate = useNavigate();
   return (
     <section className="flex flex-col gap-4 items-center md:mx-10 my-16 text-gray-900">
@@ -28,9 +32,15 @@ const Bookings = () => {
           </div>
         ))}
       </div>
-      <Link to={"/"} className="bg-blue-50 py-3 px-12 rounded-full mt-10">
+      <button
+        onClick={() => {
+          navigate("/all-doctors");
+          scrollTo(0, 0);
+        }}
+        className="bg-blue-50 py-3 px-12 rounded-full mt-10"
+      >
         more
-      </Link>
+      </button>
     </section>
   );
 };
