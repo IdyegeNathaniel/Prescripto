@@ -1,7 +1,12 @@
-import React from "react";
+import React from 'react'
+import Doctors from '../Components/Doctors'
 
 const DoctorPage = () => {
-  return <></>;
-};
+  return (
+    <>
+    <Doctors />
+    </>
+  )
+}
 
-export default DoctorPage;
+export default DoctorPage
