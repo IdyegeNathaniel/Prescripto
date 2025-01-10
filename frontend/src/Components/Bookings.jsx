@@ -14,10 +14,10 @@ const Bookings = () => {
         Simply browse through our extensive list of trusted doctors.
       </p>
       <div className="w-full grid grid-cols-auto gap-4 gap-y-6 px-3 pt-5 sm:px-6">
-        {doctors.slice(0, 10).map((doctor) => (
+        {doctors.slice(0, 10).map((doctor, index) => (
           <div
             onClick={() => navigate(`/appointment/${doctor._id}`)}
-            key={doctor.id}
+            key={index}
             className="cursor-pointer border border-blue-200 rounded-xl hover:-translate-y-[10px] transition-all duration-300 overflow-hidden"
           >
             <img src={doctor.image} alt="images" className="bg-blue-50" />
