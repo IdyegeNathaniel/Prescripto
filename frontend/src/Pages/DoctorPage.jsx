@@ -1,12 +1,66 @@
-import React from 'react'
-import Doctors from '../Components/Doctors'
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { AppContext } from "../Context/Appcontext";
 
 const DoctorPage = () => {
-  return (
-    <>
-    <Doctors />
-    </>
-  )
-}
+  const { speciality } = useParams();
+  const { doctors } = useContext(AppContext);
+  const [filterDoc, setFilterDoc] = useState([]);
+  const navigate = useNavigate();
 
-export default DoctorPage
+  const applyFilter = () => {
+    if (speciality) {
+      setFilterDoc(doctors.filter(doc => doc.speciality === speciality));
+    } else {
+      setFilterDoc(doctors);
+    }
+  };
+
+  useEffect(() => {
+    applyFilter();
+  }, [doctors, speciality]);
+
+  return (
+    <section>
+      <p className="text-gray-600">Browse through the doctors specialist.</p>
+      <div className="flex flex-col sm:flex-row items-start gap-5 mt-6">
+        <div>
+          {[
+            "General physician",
+            "Gynecologist",
+            "Dermatologist",
+            "Pediatricians",
+            "Neurologist",
+            "Gastroenterologist",
+          ].map((item, index) => (
+            <p key={index}>{item}</p>
+          ))}
+        </div>
+        <div className="w-full grid grid-cols-5 gap-4 gap-y-6">
+          {filterDoc.map((doctor, index) => (
+            <div
+              onClick={() => navigate(`/appointment/${doctor._id}`)}
+              key={index}
+              className="cursor-pointer border border-blue-200 rounded-xl hover:-translate-y-[10px] transition-all duration-300 overflow-hidden"
+            >
+              <img src={doctor.image} alt="images" className="bg-blue-50" />
+              <div className="p-4">
+                <div className="flex items-center text-center text-sm gap-2 text-green-500">
+                  <p className="w-2 h-2 rounded-full bg-green-500"></p>
+                  <p>Available</p>
+                </div>
+                <p className="font-medium text-gray-900 text-lg">
+                  {doctor.name}
+                </p>
+                <p className="text-gray-600 text-sm">{doctor.speciality}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default DoctorPage;
+    
