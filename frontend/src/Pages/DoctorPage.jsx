@@ -4,9 +4,10 @@ import { AppContext } from "../Context/Appcontext";
 
 const DoctorPage = () => {
   const { speciality } = useParams();
-  const { doctors } = useContext(AppContext);
   const [filterDoc, setFilterDoc] = useState([]);
   const navigate = useNavigate();
+
+  const { doctors } = useContext(AppContext);
 
   const applyFilter = () => {
     if (speciality) {
@@ -24,7 +25,7 @@ const DoctorPage = () => {
     <section>
       <p className="text-gray-600">Browse through the doctors specialist.</p>
       <div className="flex flex-col sm:flex-row items-start gap-5 mt-6">
-        <div>
+        <div className="flex flex-col gap-2 text-gray-700">
           {[
             "General physician",
             "Gynecologist",
@@ -63,4 +64,3 @@ const DoctorPage = () => {
 };
 
 export default DoctorPage;
-    
