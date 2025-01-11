@@ -42,7 +42,7 @@ const DoctorPage = () => {
                   ? navigate("/all-doctors")
                   : navigate(`/all-doctors/${item}`)
               }
-              className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer`}
+              className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer ${speciality === `${item}` ? "bg-indigo-100 text-black" : ""}`}
             >
               {item}
             </p>
