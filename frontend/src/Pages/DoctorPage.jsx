@@ -35,7 +35,17 @@ const DoctorPage = () => {
             "Neurologist",
             "Gastroenterologist",
           ].map((item, index) => (
-            <p key={index}>{item}</p>
+            <p
+              key={index}
+              onClick={() =>
+                speciality === "Gynecologist"
+                  ? navigate("/all-doctors")
+                  : navigate(`/all-doctors/${doctors.speciality}`)
+              }
+              className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer`}
+            >
+              {item}
+            </p>
           ))}
         </div>
         <div className="w-full grid grid-cols-5 gap-4 gap-y-6">
