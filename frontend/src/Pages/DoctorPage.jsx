@@ -38,9 +38,9 @@ const DoctorPage = () => {
             <p
               key={index}
               onClick={() =>
-                speciality === "Gynecologist"
+                speciality === `${item}`
                   ? navigate("/all-doctors")
-                  : navigate(`/all-doctors/${doctors.speciality}`)
+                  : navigate(`/all-doctors/${item}`)
               }
               className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer`}
             >
