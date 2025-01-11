@@ -9,9 +9,10 @@ const DoctorPage = () => {
 
   const { doctors } = useContext(AppContext);
 
+  console.log(speciality);
   const applyFilter = () => {
     if (speciality) {
-      setFilterDoc(doctors.filter(doc => doc.speciality === speciality));
+      setFilterDoc(doctors.filter((doc) => doc.speciality === speciality));
     } else {
       setFilterDoc(doctors);
     }

@@ -18,9 +18,7 @@ const Speciality = () => {
             <Link
               key={index}
               onClick={() => scrollTo(0, 0)}
-              to={`/all-doctors/${item.speciality
-                .toLowerCase()
-                .replace(" ", "-")}`}
+              to={`/all-doctors/${item.speciality}`}
               className="flex md:flex-col flex-shrink-0text-center text-xs items-center justify-center hover:-translate-y-[10px] transition-all duration-500"
             >
               <img src={item.image} alt="image" className="w-16 sm:w-24 mb-2" />
