@@ -38,7 +38,7 @@ const Footer = () => {
       <div>
         <hr />
         <h4 className="py-5 text-center text-sm">
-          Copyright 2024 @ Greatstack.dev - All Right Reserved.
+          Copyright 2024 - All Right Reserved.
         </h4>
       </div>
     </section>
