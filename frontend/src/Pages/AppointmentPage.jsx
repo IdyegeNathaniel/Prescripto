@@ -4,10 +4,10 @@ import { useParams } from "react-router-dom";
 import { assets } from "../assets/assets";
 
 const AppointmentPage = () => {
-  const [docInfo, setDocInfo] = useState(null);
-  const daysOfWeek = ["SUN", "MON", "TUE", "WED", "THUR", "FRI", "SAT"]
-
+  const daysOfWeek = ["SUN", "MON", "TUE", "WED", "THUR", "FRI", "SAT"];
+  
   const { docId } = useParams();
+  const [docInfo, setDocInfo] = useState(null);
   const { doctors, currencySymbol } = useContext(AppContext);
   const { docSlots, setDocSlots } = useState([]);
   const { slotIndex, setSlotIndex } = useState(0);
@@ -19,46 +19,50 @@ const AppointmentPage = () => {
   };
 
   const getAvailableSlots = async () => {
-    setDocSlots([])
+    setDocSlots([]);
 
-  //GET CURRENT DATE 
-  let today = new Date()
+    //GET CURRENT DATE
+    let today = new Date();
 
-  for (let index = 0; index < 7; index++) {
-    //GETTING DATE WITH INDEX
-    let currentDate = new Date(today);
-    currentDate.setDate(today.getDate() + index)
+    for (let i = 0; i < 7; i++) {
+      //GETTING DATE WITH INDEX
+      let currentDate = new Date(today);
+      currentDate.setDate(today.getDate() + i);
 
-    
-    //SETTING END TIME OF THE DATE WITH INDEX
-    let endTime = new Date(today);
-    endTime.setDate(today.getDate() + index);
-    endTime.setHours(21,0,0,0)
+      //SETTING END TIME OF THE DATE WITH INDEX
+      let endTime = new Date();
+      endTime.setDate(today.getDate() + i);
+      endTime.setHours(21, 0, 0, 0);
 
-    //SETTING HOURS
-    if (today.getDate() === currentDate.getDate()) {
-      currentDate.setHours(currentDate.getHours() > 10 ? currentDate.getHours() + 1 : 10)
-      currentDate.setMinutes(currentDate.getMinutes() > 30 ? 30 : 0)
-    } else {
-      currentDate.setHours(10)
-      currentDate.setMinutes(0)
+      //SETTING HOURS
+      if (today.getDate() === currentDate.getDate()) {
+        currentDate.setHours(
+          currentDate.getHours() > 10 ? currentDate.getHours() + 1 : 10
+        );
+        currentDate.setMinutes(currentDate.getMinutes() > 30 ? 30 : 0);
+      } else {
+        currentDate.setHours(10);
+        currentDate.setMinutes(0);
+      }
+
+      let timeSlots = [];
+      while (currentDate < endTime) {
+        let formattedTime = currentDate.toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+
+        // ADD SLOTS TO ARRAY
+        timeSlots.push({
+          datetime: new Date(currentDate),
+          time: formattedTime,
+        });
+
+        //INCREMENT CURRENT TIME BY 30 MINUTES
+        currentDate.setMinutes(currentDate.getMinutes() + 30);
+      }
+      setDocSlots((prev) => [...prev, timeSlots]);
     }
-
-    let timeSlots = []
-    while (currentDate < endTime) {
-      let formattedTime = currentDate. toLocaleTimeString([], { hour: "2-digits", minute: "2-digit"})
-      
-      // ADD SLOTS TO ARRAY
-      timeSlots.push({
-        datetime: new Date(currentDate),
-        time: formattedTime      
-      })
-
-      //INCREMENT CURRENT TIME BY 30 MINUTES
-      currentDate.setMinutes(currentDate.getMinutes() + 30)
-    }
-    setDocSlots(prev => ([...prev, timeSlots]))
-  }
   };
 
   useEffect(() => {
@@ -69,9 +73,9 @@ const AppointmentPage = () => {
     getAvailableSlots();
   }, [docInfo]);
 
-useEffect(() => {
-  
-}, [docSlots])
+  useEffect(() => {
+    console.log(docSlots);
+  }, [docSlots]);
 
   return (
     docInfo && (
@@ -123,14 +127,13 @@ useEffect(() => {
         <div className="sm:ml-72 sm:pl-4 mt-4 font-medium text-gray-700">
           <p>Booking Slots</p>
           <div className="">
-            {
-               docSlots.length && docSlots.map((item, index) => (
-                <div key={index} className="">
+            {docSlots.length &&
+              docSlots.map((item, index) => (
+                <div key={index}>
                   <p>{item[0] && daysOfWeek[item[0].datetime.getDay()]}</p>
                   <p>{item[0] && item[0].datetime.getDate()}</p>
                 </div>
-               ))
-            }
+              ))}
           </div>
         </div>
       </section>
