@@ -5,13 +5,13 @@ import { assets } from "../assets/assets";
 
 const AppointmentPage = () => {
   const daysOfWeek = ["SUN", "MON", "TUE", "WED", "THUR", "FRI", "SAT"];
-  
+
   const { docId } = useParams();
-  const [docInfo, setDocInfo] = useState(null);
   const { doctors, currencySymbol } = useContext(AppContext);
-  const { docSlots, setDocSlots } = useState([]);
-  const { slotIndex, setSlotIndex } = useState(0);
-  const { slotTime, setSlotTime } = useState("");
+  const [docInfo, setDocInfo] = useState(null);
+  const [docSlots, setDocSlots ] = useState([]);
+  const [slotIndex, setSlotIndex]  = useState(0);
+  const [slotTime, setSlotTime]  = useState("");
 
   const fetchDocInfo = async () => {
     const docInfo = doctors.find((doc) => doc._id === docId);
@@ -21,7 +21,7 @@ const AppointmentPage = () => {
   const getAvailableSlots = async () => {
     setDocSlots([]);
 
-    //GET CURRENT DATE
+    //GETTING CURRENT DATE
     let today = new Date();
 
     for (let i = 0; i < 7; i++) {
@@ -45,23 +45,25 @@ const AppointmentPage = () => {
         currentDate.setMinutes(0);
       }
 
-      let timeSlots = [];
+      let timeslots = [];
+
       while (currentDate < endTime) {
         let formattedTime = currentDate.toLocaleTimeString([], {
           hour: "2-digit",
           minute: "2-digit",
         });
 
-        // ADD SLOTS TO ARRAY
-        timeSlots.push({
+        //ADD DLOT TO ARRAY
+        timeslots.push({
           datetime: new Date(currentDate),
           time: formattedTime,
         });
 
-        //INCREMENT CURRENT TIME BY 30 MINUTES
+        //INCREMENT CURRENT TIME BY 30 MINS
         currentDate.setMinutes(currentDate.getMinutes() + 30);
       }
-      setDocSlots((prev) => [...prev, timeSlots]);
+
+      setDocSlots((prev) => [...prev, timeslots]);
     }
   };
 
@@ -127,7 +129,7 @@ const AppointmentPage = () => {
         <div className="sm:ml-72 sm:pl-4 mt-4 font-medium text-gray-700">
           <p>Booking Slots</p>
           <div className="">
-            {docSlots.length &&
+            {docSlots.length > 0 &&
               docSlots.map((item, index) => (
                 <div key={index}>
                   <p>{item[0] && daysOfWeek[item[0].datetime.getDay()]}</p>
@@ -135,7 +137,7 @@ const AppointmentPage = () => {
                 </div>
               ))}
           </div>
-        </div>
+        </div> 
       </section>
     )
   );
