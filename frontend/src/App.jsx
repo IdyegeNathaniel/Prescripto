@@ -13,6 +13,7 @@ import MyAppointmentPage from "./Pages/MyAppointmentPage";
 import MyProfilePage from "./Pages/MyProfilePage";
 import NotFoundPage from "./Pages/NotFoundPage";
 import AppointmentPage from "./Pages/AppointmentPage";
+import LoginPage from "./Pages/LoginPage";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/my-appointment" element={<MyAppointmentPage />} />
         <Route path="/appointment/:docId" element={<AppointmentPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/my-profile" element={<MyProfilePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
