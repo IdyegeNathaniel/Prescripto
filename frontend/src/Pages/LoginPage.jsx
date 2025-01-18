@@ -22,17 +22,19 @@ const LoginPage = () => {
           Please {state === "Sign Up" ? "sign up" : "Log in"} to book
           appointment
         </p>
-        <div className="w-full">
-          <p>Full Name</p>
-          <input
-            type="text"
-            onChange={(e) => setName(e.target.name)}
-            value={name}
-            name="name"
-            className="w-full border border-zinc-300 mt-1 p-2 rounded"
-            required
-          />
-        </div>
+        {state === "Sign Up" && (
+          <div className="w-full">
+            <p>Full Name</p>
+            <input
+              type="text"
+              onChange={(e) => setName(e.target.name)}
+              value={name}
+              name="name"
+              className="w-full border border-zinc-300 mt-1 p-2 rounded"
+              required
+            />
+          </div>
+        )}
         <div className="w-full">
           <p>Email</p>
           <input
@@ -62,14 +64,22 @@ const LoginPage = () => {
         {state === "Sign Up" ? (
           <p>
             Already have an account?{" "}
-            <span className="text-primary underline cursor-pointer" onClick={() => setState("Login")}>
+            <span
+              className="text-primary underline cursor-pointer"
+              onClick={() => setState("Login")}
+            >
               Login here
             </span>
           </p>
         ) : (
           <p>
             Create a new account?{" "}
-            <span className="text-primary underline cursor-pointer" onClick={() => setState("Sign Up")}>Click here</span>
+            <span
+              className="text-primary underline cursor-pointer"
+              onClick={() => setState("Sign Up")}
+            >
+              Click here
+            </span>
           </p>
         )}
       </div>
