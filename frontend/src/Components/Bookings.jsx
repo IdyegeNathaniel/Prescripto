@@ -13,7 +13,7 @@ const Bookings = () => {
       <p className="text-sm font-light text-center sm:1/3">
         Simply browse through our extensive list of trusted doctors.
       </p>
-      <div className="w-full grid grid-cols-auto gap-4 gap-y-6 px-3 pt-5 sm:px-6">
+      <div className="w-full grid sm:grid-cols-auto flex-col gap-4 gap-y-6 px-3 pt-5 sm:px-6">
         {doctors.slice(0, 10).map((doctor, index) => (
           <div
             onClick={() => {

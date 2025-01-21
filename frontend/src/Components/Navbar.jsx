@@ -58,6 +58,34 @@ const Navbar = () => {
             Create Account
           </button>
         )}
+        <img
+          onClick={() => setMenu(true)}
+          src={assets.menu_icon}
+          className="w-6 md:hidden"
+          alt="image"
+        />
+        {/* MOBILE MENU */}
+        <div
+          className={`${
+            menu ? "fixed w-full" : "w-0 h-0"
+          } md:hidden right-0 top-0 bottom-0 overflow-hidden z-20 bg-white transition-all`}
+        >
+          <div className="flex items-center justify-between px-5 py-6">
+            <img className="w" src={assets.logo} alt="" />
+            <img
+              className="w-7"
+              onClick={() => setMenu(false)}
+              src={assets.cross_icon}
+              alt=""
+            />
+          </div>
+          <ul>
+            <NavLink>HOME</NavLink>
+            <NavLink>ALL DOCTORS</NavLink>
+            <NavLink>ABOUT</NavLink>
+            <NavLink>CONTACT</NavLink>
+          </ul>
+        </div>
       </div>
     </nav>
   );
