@@ -79,11 +79,11 @@ const Navbar = () => {
               alt=""
             />
           </div>
-          <ul>
-            <NavLink>HOME</NavLink>
-            <NavLink>ALL DOCTORS</NavLink>
-            <NavLink>ABOUT</NavLink>
-            <NavLink>CONTACT</NavLink>
+          <ul className="flex flex-col items-center gap-2 mt-5 px-5 text-lg font-medium">
+            <NavLink onClick={() => setMenu(false)} to={"/"}>HOME</NavLink>
+            <NavLink onClick={() => setMenu(false)} to={"/all-doctors"}>ALL DOCTORS</NavLink>
+            <NavLink onClick={() => setMenu(false)} to={"/about"}>ABOUT</NavLink>
+            <NavLink onClick={() => setMenu(false)} to={"/contact"}>CONTACT</NavLink>
           </ul>
         </div>
       </div>
