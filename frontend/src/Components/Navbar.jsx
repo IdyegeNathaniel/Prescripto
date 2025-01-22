@@ -80,15 +80,22 @@ const Navbar = () => {
             />
           </div>
           <ul className="flex flex-col items-center gap-2 mt-5 px-5 text-lg font-medium">
-            <NavLink onClick={() => setMenu(false)} to={"/"}>HOME</NavLink>
-            <NavLink onClick={() => setMenu(false)} to={"/all-doctors"}>ALL DOCTORS</NavLink>
-            <NavLink onClick={() => setMenu(false)} to={"/about"}>ABOUT</NavLink>
-            <NavLink onClick={() => setMenu(false)} to={"/contact"}>CONTACT</NavLink>
+            <NavLink onClick={() => setMenu(false)} to={"/"}>
+              <p className="inline-block px-4 py-2 rounded">HOME</p>
+            </NavLink>
+            <NavLink onClick={() => setMenu(false)} to={"/all-doctors"}>
+              <p className="inline-block px-4 py-2 rounded">ALL DOCTORS</p>
+            </NavLink>
+            <NavLink onClick={() => setMenu(false)} to={"/about"}>
+              <p className="inline-block px-4 py-2 rounded">ABOUT</p>
+            </NavLink>
+            <NavLink onClick={() => setMenu(false)} to={"/contact"}>
+              <p className="inline-block px-4 py-2 rounded">CONTACT</p>
+            </NavLink>
           </ul>
         </div>
       </div>
     </nav>
   );
 };
-
 export default Navbar;
