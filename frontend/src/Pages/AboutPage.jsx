@@ -53,7 +53,7 @@ const AboutPage = () => {
         <div className="flex flex-col gap-5 border border-gray-400 px-10 md:px-16 py-8 md:py-16 text-[15px] text-gray-600 hover:bg-primary transition-all duration-300 cursor-pointer hover:text-white">
           <b>CONVENIENCE:</b>
           <p>
-            Access to a network of trusted healthcare professionals in your
+            Access to a network of expert hair styling professionals in your
             area.
           </p>
         </div>
@@ -62,7 +62,7 @@ const AboutPage = () => {
           <b>PERSONALIZATION:</b>
           <p>
             Tailored recommendations and reminders to help you stay on top of
-            your health.
+            your game.
           </p>
         </div>
       </div>
