@@ -18,7 +18,7 @@ app.use(cors())
 
 //api endpoint
 
-api.use("/api/admin", adminRouter)
+app.use("/api/admin", adminRouter)
 
 app.get("/", (req, res) => {
     res.send('API working with nodemon')
