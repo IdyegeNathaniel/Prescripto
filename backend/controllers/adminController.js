@@ -12,7 +12,7 @@ const addDoctor = async (req, res) => {
         const { name, email, password, speciality, degree, experience, about, fees, address } = req.body
         const imageFile = req.file
 
-       // console.log({ name, email, password, speciality, degree, experience, about, fees, address }, imageFile)
+       console.log({ name, email, password, speciality, degree, experience, about, fees, address }, imageFile)
 
        //SEARCHING FOR ALL DATA TO ADD TO DOCTORS
 
