@@ -6,7 +6,7 @@ import connectCloudinary from "./config/cloudinary.js";
 import adminRouter from "./routes/adminRoute.js";
 
 //app config
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 8000
 const app = express()
 connectDB()
 connectCloudinary()
@@ -25,4 +25,4 @@ app.get("/", (req, res) => {
 })
 
 
-app.listen(port , () => console.log("The server has started", port))
+app.listen(port , () => console.log(  `The server is running on port ${port}`))
